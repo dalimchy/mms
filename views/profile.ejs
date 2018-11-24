@@ -1,0 +1,112 @@
+<%- include('partials/head')%>
+<div class="page-main">
+    <%- include('partials/nav')%>
+    <div class="my-3 my-md-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card card-profile">
+                        <div class="card-header"></div>
+                        <div class="card-body text-center">
+                            <img class="card-profile-img" src="<%= user_avater %>">
+                            <h3 class="mb-3"><%= user_name %></h3>
+                            <p class="mb-4">
+                                <%= bio %>
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <span class="fa fa-twitter"></span> Follow
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="media">
+                                <img class="avatar avatar-xxl mr-5" src="<%= user_avater %>">
+                                <div class="media-body">
+                                    <h4 class="m-0"><%= user_name %></h4>
+                                    <p class="text-muted mb-0"><%= user_type %></p>
+                                    <ul class="social-links list-inline mb-0 mt-2">
+                                        <li class="list-inline-item">
+                                            <a href="javascript:void(0)" title="Facebook" data-toggle="tooltip"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="javascript:void(0)" title="Twitter" data-toggle="tooltip"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="javascript:void(0)" title="1234567890" data-toggle="tooltip"><i class="fa fa-phone"></i></a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="javascript:void(0)" title="@skypename" data-toggle="tooltip"><i class="fa fa-skype"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <form class="card" id="userEditForm" data-id="<%= user_id %>" method="post" action="/profile/update">
+                        <div class="card-body">
+                            <h3 class="card-title">Edit Profile</h3>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Company</label>
+                                        <input type="text" class="form-control" name="company" placeholder="Company" value="<%= company %>">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                   <div class="form-group">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-control" name="fname" placeholder="First Name" value="<%= frist_name %>">
+                                    </div> 
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" name="lname" placeholder="Last Name" value="<%= last_name %>">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Email address</label>
+                                        <input type="email" class="form-control" disabled="" placeholder="Email" value="<%= user_email %>">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Username</label>
+                                        <input type="text" class="form-control" disabled="" placeholder="Username" value="<%= user_name %>">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">NID Number</label>
+                                        <input type="number" class="form-control" name="nid" placeholder="NID Number" value="<%= nid_number %>">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Address</label>
+                                        <input type="text" class="form-control" name="address" placeholder="Home Address" value="<%= home_address %>">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group mb-0">
+                                        <label class="form-label">About Me</label>
+                                        <textarea rows="5" class="form-control" name="about_me" placeholder="Here can be your description"
+                                            value="<%= about_me %>"><%= about_me %></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/foot')%>

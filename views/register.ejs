@@ -1,0 +1,109 @@
+<%- include('partials/head')%>
+
+<div class="page-single">
+    <div class="container">
+        <div class="row">
+            <div class="col col-login mx-auto">
+                <div class="text-center mb-6">
+                    <img src="/images/brand/logo.png" class="h-6" alt=""  style="width: 53%; top: 0px; height: auto !important; margin-bottom: -48px;">
+                </div>
+                <form class="card" action="/users/register" method="post">
+                    <div class="card-body p-6">
+                        <div class="card-title">Create new account</div>
+                        <% if(data != true){ %>
+                            <% if(data._id != undefined){ %>
+                            <div class="alert alert-success">
+                                Successfully Inserted
+                            </div>
+                            <% }else{ %>
+                                <% if(data.password != undefined){ %>
+                                <div class="alert alert-danger">
+                                    <%= data.password %>
+                                </div>
+                                <% } %>
+                                <% if(data.password2 != undefined){ %>
+                                <div class="alert alert-danger">
+                                    <%= data.password2 %>
+                                </div>
+                                <% } %>
+                                <% if(data.email != undefined){ %>
+                                <div class="alert alert-danger">
+                                    <%= data.email %>
+                                </div>
+                                <% } %>
+                                <% if(data.frist_name != undefined){ %>
+                                <div class="alert alert-danger">
+                                    <%= data.frist_name %>
+                                </div>
+                                <% } %>
+                            <% } %>
+                        <% } %>
+                        <div class="form-group">
+                            <label class="form-label">Frist Name</label>
+                            <input type="text" name="fname" class="form-control" placeholder="Enter Frist Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" name="lname" class="form-control" placeholder="Enter Last Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email address</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Password">
+                        </div
+                        ><div class="form-group">
+                            <label class="form-label">Confirm passowrd</label>
+                            <input type="password" name="password2" class="form-control" placeholder="Confirm Password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="text" name="phone" class="form-control" placeholder="Phone">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-label">Gender</div>
+                            <div class="custom-switches-stacked">
+                                <label class="custom-switch">
+                                <input type="radio" name="gender" value="male" class="custom-switch-input" checked="">
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Male</span>
+                                </label>
+                                <label class="custom-switch">
+                                <input type="radio" name="gender" value="female" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Female</span>
+                                </label>
+                                <label class="custom-switch">
+                                <input type="radio" name="gender" value="others" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Others</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Boarder Type</label>
+                            <select name="type" class="form-control custom-select">
+                                <option value="boarder">Boarder</option>
+                                <option value="manager">Manager</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" />
+                            <span class="custom-control-label">Agree the <a href="terms.html">terms and policy</a></span>
+                            </label>
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary btn-block">Create new account</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center text-muted"> Already have account? <a href="/login">Sign in</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/foot')%>
